@@ -1,11 +1,13 @@
 package engine
 
+//启动引擎
 type ConcurrentEngine struct {
 	Scheduler   Scheduler
 	WorkerCount int
 	ItemChan    chan Item
 }
 
+//调度器
 type Scheduler interface {
 	ReadyNotifier
 	Submit(Request)
@@ -66,6 +68,7 @@ func createWorker(in chan Request, out chan ParseResult, ready ReadyNotifier) {
 
 var visitedUrls = make(map[string]bool)
 
+//去重
 func isDuplicate(url string) bool {
 	if visitedUrls[url] {
 		return true

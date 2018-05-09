@@ -2,6 +2,7 @@ package scheduler
 
 import "learncrawler/crawler/engine"
 
+//简单的调度器
 type SimpleScheduler struct {
 	workerChan chan engine.Request
 }

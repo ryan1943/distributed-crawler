@@ -14,6 +14,7 @@ import (
 	"golang.org/x/text/transform"
 )
 
+//限制访问网站的速度
 var rateLimiter = time.Tick(10 * time.Millisecond)
 
 func Fetch(url string) ([]byte, error) {
@@ -33,6 +34,7 @@ func Fetch(url string) ([]byte, error) {
 
 }
 
+//确认编码
 func determineEncoding(r *bufio.Reader) encoding.Encoding {
 	bytes, err := r.Peek(1024) //Peek 返回缓存的一个切片，该切片引用缓存中前 n 个字节的数据
 	if err != nil {

@@ -2,19 +2,23 @@ package scheduler
 
 import "learncrawler/crawler/engine"
 
+//调度器
 type QueuedScheduler struct {
 	requestChan chan engine.Request
 	workerChan  chan chan engine.Request
 }
 
+//接收发过来的请求
 func (s *QueuedScheduler) Submit(r engine.Request) {
 	s.requestChan <- r
 }
 
+//生成worker
 func (s *QueuedScheduler) WorkerChan() chan engine.Request {
 	return make(chan engine.Request)
 }
 
+//接收worker
 func (s *QueuedScheduler) WorkerReady(w chan engine.Request) {
 	s.workerChan <- w
 }

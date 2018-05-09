@@ -10,6 +10,7 @@ var (
 	cityUrlRe = regexp.MustCompile(`href="(http://www.zhenai.com/zhenghun/[^"]+)"`)
 )
 
+//根据城市的第一页来匹配页面中的用户
 func ParseCity(contents []byte, _ string) engine.ParseResult {
 	matches := profileRe.FindAllSubmatch(contents, -1)
 	result := engine.ParseResult{}
@@ -19,7 +20,7 @@ func ParseCity(contents []byte, _ string) engine.ParseResult {
 		//result.Items = append(result.Items, "User "+name)
 		result.Requests = append(result.Requests, engine.Request{
 			Url:        string(m[1]),
-			ParserFunc: ProfileParser(string(m[2])),
+			ParserFunc: ProfileParser(string(m[2])), //后续的解析器
 		})
 	}
 

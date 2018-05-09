@@ -4,6 +4,7 @@ import (
 	"log"
 )
 
+//简单的启动引擎
 type SimpleEngine struct{}
 
 func (e SimpleEngine) Run(seeds ...Request) {

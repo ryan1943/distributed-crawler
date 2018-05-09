@@ -6,9 +6,10 @@ import (
 	"learncrawler/crawler/engine"
 	"log"
 
-	elastic "gopkg.in/olivere/elastic.v5"
+	"gopkg.in/olivere/elastic.v5"
 )
 
+//把数据保存在ElasticSearch里面
 //index在elasticsearch里面相当于数据库名
 func ItemSaver(index string) (chan engine.Item, error) {
 	client, err := elastic.NewClient(
@@ -33,7 +34,7 @@ func ItemSaver(index string) (chan engine.Item, error) {
 	return out, nil
 }
 
-//index类似数据库名
+//保存数据
 func Save(client *elastic.Client, index string, item engine.Item) error {
 
 	if item.Type == "" {

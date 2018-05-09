@@ -23,8 +23,9 @@ var (
 	houseRe      = regexp.MustCompile(`<td><span class="label">住房条件：</span><span field="">([^<]+)</span></td>`)
 	carRe        = regexp.MustCompile(`<td><span class="label">是否购车：</span><span field="">([^<]+)</span></td>`)
 	guessRe      = regexp.MustCompile(`<a class="exp-user-name"[^>]*href="(http://album.zhenai.com/u/[\d]+)">([^<]+)</a>`)
-	idUrlRe      = regexp.MustCompile(`http://album.zhenai.com/u/([\d]+)`)
+	idUrlRe      = regexp.MustCompile(`http://album.zhenai.com/u/([\d]+)`)  //猜你喜欢的用户的url
 )
+
 
 func ParseProfile(contents []byte, url string, name string) engine.ParseResult {
 	profile := model.Profile{}

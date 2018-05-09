@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+
+<body>
+<style>
+    .table1{font-size:20px;text-align:center; }
+    td{width:85px;}
+    a{ text-decoration:none}
+    .name{width:120px}
+    .spec{width:100px}
+    #no_user{font-size: 20px}
+
+</style>
+<div id="demo">
+    <div align="middle">
+        <form method="get">
+            <input type="text" name="q" placeholder="按条件查找" size="50" value="{{.Query}}"/>
+            <button type="submit">搜索</button>
+        </form>
+    </div >
+    <div align="middle">
+        <h2>共为你找到相关结果约为{{.Hits}}条.显示从{{.Start}}起共{{len .Items}}条记录</h2>
+    </div>
+
+    <div align="middle">
+        <table id="table" class="table1" border="1"  style="border-collapse:collapse;">
+            <tbody>
+            <tr>
+                <td class="name">用户</td>
+                <td>性别</td>
+                <td >年龄</td>
+                <td>身高</td>
+                <td>体重</td>
+                <td>月收入</td>
+                <td class="spec">学历</td>
+                <td class="spec">职业</td>
+                <td class="name">籍贯</td>
+                <td>星座</td>
+                <td>购车情况</td>
+                <td class="spec">购房情况</td>
+            </tr>
+            {{range .Items}}
+                    <tr>
+                        <td><a href="{{.Url}}">{{.Payload.Name}}</a></td>
+                        {{with .Payload}}
+                        <td>{{.Gender}}</td>
+                        <td>{{.Age}}</td>
+                        <td>{{.Height}}cm</td>
+                        <td>{{.Weight}}kg</td>
+                        <td>{{.Income}}</td>
+                        <td>{{.Education}}</td>
+                        <td>{{.Occupation}}</td>
+                        <td>{{.Hokou}}</td>
+                        <td>{{.Xinzuo}}</td>
+                        <td>{{.Car}}</td>
+                        <td>{{.House}}</td>
+                        {{end}}
+                    </tr>
+            {{else}}
+            <div>
+                <span id="no_user">没有找到相关用户</span>
+                <br />
+                <br />
+            </div>
+            {{end}}
+            </tbody>
+        </table>
+        <div align="middle">
+            {{if ge .PrevFrom 0}}
+            <a href="search?q={{.Query}}&from={{.PrevFrom}}">上一页</a>
+            {{end}}
+            <a href="search?q={{.Query}}&from={{.NextFrom}}">下一页</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

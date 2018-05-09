@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"> 
+	<title>数据展示</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    .container div{
+        margin:20px auto;
+        text-align: center;
+    }
+    .container div>div {
+        display: flex;
+    }
+
+    .container div>button {
+        margin-left: 10px;
+    }
+    table{
+        text-align:center;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <form method="get">
+                <input id="text" type="text"style="height: 27px" name="q" placeholder="按条件查找" size="50" value="{{.Query}}" required />
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+            <p>共为你找到相关结果约为{{.Hits}}条.显示从{{.Start}}起共{{len .Items}}条记录</p>
+        </div> 
+                            
+        <table class="table table-hover table-striped table-bordered">
+            <tbody>
+                <tr class="info">
+                    <td>用户</td>
+                    <td>性别</td>
+                    <td >年龄</td>
+                    <td>身高</td>
+                    <td>体重</td>
+                    <td>月收入</td>
+                    <td>学历</td>
+                    <td>职业</td>
+                    <td>籍贯</td>
+                    <td>星座</td>
+                    <td>购车情况</td>
+                    <td>购房情况</td>
+                </tr>
+                {{range .Items}}
+                <tr>
+                    <td><a href="{{.Url}}" target="view_window">{{.Payload.Name}}</a></td>
+                {{with .Payload}}
+                    <td>{{.Gender}}</td>
+                    <td>{{.Age}}</td>
+                    <td>{{.Height}}cm</td>
+                    <td>{{.Weight}}kg</td>
+                    <td>{{.Income}}</td>
+                    <td>{{.Education}}</td>
+                    <td>{{.Occupation}}</td>
+                    <td>{{.Hokou}}</td>
+                    <td>{{.Xinzuo}}</td>
+                    <td>{{.Car}}</td>
+                    <td>{{.House}}</td>
+                {{end}}
+                </tr>
+                {{else}}
+                <div>
+                    <span id="no_user">没有找到相关用户</span>
+                    <br />
+                    <br />
+                </div>
+                {{end}}
+
+            </tbody>
+        </table>
+        <div align="middle">
+        {{if ge .PrevFrom 0}}
+            <a href="search?q={{.Query}}&from={{.PrevFrom}}">上一页</a>
+        {{end}}
+            <a href="search?q={{.Query}}&from={{.NextFrom}}">下一页</a>
+        </div>
+    </div>
+</body>
+</html>

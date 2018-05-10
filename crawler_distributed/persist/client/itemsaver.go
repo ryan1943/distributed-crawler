@@ -1,12 +1,13 @@
 package client
 
 import (
+	"learncrawler/crawler/engine"
 	"learncrawler/crawler_distributed/config"
 	"learncrawler/crawler_distributed/rpcsupport"
-	"learncrawler/crawler/engine"
 	"log"
 )
 
+//ItemSaver客户端
 func ItemSaver(host string) (chan engine.Item, error) {
 	client, err := rpcsupport.NewClient(host)
 	if err != nil {

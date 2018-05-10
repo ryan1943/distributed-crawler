@@ -8,6 +8,8 @@ import (
 	"net/http"
 	"time"
 
+	"learncrawler/crawler_distributed/config"
+
 	"golang.org/x/net/html/charset"
 	"golang.org/x/text/encoding"
 	"golang.org/x/text/encoding/unicode"
@@ -15,10 +17,11 @@ import (
 )
 
 //限制访问网站的速度
-var rateLimiter = time.Tick(10 * time.Millisecond)
+var rateLimiter = time.Tick(time.Second / config.Qps)
 
 func Fetch(url string) ([]byte, error) {
 	<-rateLimiter
+	log.Printf("Fetching url %s", url)
 	resp, err := http.Get(url)
 	if err != nil {
 		return nil, err

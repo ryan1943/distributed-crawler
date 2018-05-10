@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"learncrawler/crawler_distributed/persist"
 	"learncrawler/crawler_distributed/rpcsupport"
@@ -11,8 +12,21 @@ import (
 	"gopkg.in/olivere/elastic.v5"
 )
 
+var port = flag.Int("port", 0, "the port for me to listen on")
+
+//ItemSaver服务端注册
 func main() {
-	log.Fatal(serveRpc(fmt.Sprintf(":%d", config.ItemSaverPort),
+	flag.Parse()
+	if *port == 0 {
+		fmt.Println("must specify a prot")
+		return
+	}
+	/*log.Fatal(serveRpc(fmt.Sprintf(":%d", config.ItemSaverPort),
+	config.ElasticIndex))*/
+	//通过命令行来启用itemsaver的rpc端口
+	//go run itemsaver.go --help帮助
+	//go run itemsaver.go --port=1234
+	log.Fatal(serveRpc(fmt.Sprintf(":%d", *port),
 		config.ElasticIndex))
 }
 

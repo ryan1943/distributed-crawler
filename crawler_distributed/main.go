@@ -49,7 +49,11 @@ func main() {
 
 }
 
-//根据启用的rpc端口数去调用相应数量的远程worker服务器数
+//爬虫连接池
+//根据启用的rpc端口数去生成相应的rpc客户端数
+//假如hosts的数量是2，engine的WorkerCount是50
+//本机50个worker的goroutine去轮流调用这2个rpc客户端
+//每个rpc客户端对应的服务端各自使用了25个goroutine去并发处理
 func createClientPool(hosts []string) chan *rpc.Client {
 	var clients []*rpc.Client
 	for _, h := range hosts {

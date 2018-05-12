@@ -13,6 +13,7 @@ type ItemSaverService struct {
 	Index  string //类似数据库名
 }
 
+//要注册的rpc服务
 func (s *ItemSaverService) Save(item engine.Item, result *string) error {
 	err := persist.Save(s.Client, s.Index, item)
 	log.Printf("Item %v saved.", item)

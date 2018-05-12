@@ -10,7 +10,7 @@ import (
 	"github.com/labstack/gommon/log"
 )
 
-//把ParserFunc序列化用于传输
+//把Parser序列化用于传输
 type SerializedParser struct {
 	Name string
 	Args interface{}

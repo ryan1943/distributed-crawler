@@ -1,7 +1,5 @@
 package engine
 
-type ParserFunc func(contents []byte, url string) ParseResult
-
 ///解析器
 type Parser interface {
 	Parse(contents []byte, url string) ParseResult
@@ -38,6 +36,8 @@ func (NilParser) Parse(_ []byte, _ string) ParseResult {
 func (NilParser) Serialize() (name string, args interface{}) {
 	return "NilParser", nil
 }
+
+type ParserFunc func(contents []byte, url string) ParseResult
 
 type FuncParser struct {
 	parser ParserFunc

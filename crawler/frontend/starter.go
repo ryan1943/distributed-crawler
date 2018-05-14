@@ -12,7 +12,7 @@ func main() {
 		http.Dir("crawler/frontend/view")))
 	http.Handle("/search", controller.CreateSearchResultHandler(
 		"crawler/frontend/view/template1.html"))
-	err := http.ListenAndServe(":8888", nil) //使用DefaultServeMux作为服务器的主handler
+	err := http.ListenAndServe(":80", nil) //使用DefaultServeMux作为服务器的主handler
 	if err != nil {
 		panic(err)
 	}

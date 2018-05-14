@@ -2,7 +2,6 @@ package parser
 
 import (
 	"learncrawler/crawler/engine"
-	"learncrawler/crawler_distributed/config"
 	"regexp"
 )
 
@@ -26,13 +25,13 @@ func ParseCity(contents []byte, _ string) engine.ParseResult {
 	}
 
 	//页面底部的相关链接
-	matches = cityUrlRe.FindAllSubmatch(contents, -1)
+	/*matches = cityUrlRe.FindAllSubmatch(contents, -1)
 	for _, m := range matches {
 		result.Requests = append(result.Requests, engine.Request{
 			Url:    string(m[1]),
 			Parser: engine.NewFuncParser(ParseCity, config.ParseCity),
 		})
-	}
+	}*/
 
 	return result
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/garyburd/redigo/redis"
 )
@@ -25,16 +26,25 @@ func main() {
 	} else {
 		fmt.Printf("Get mykey: %v \n", username)
 	}
+
+	res := Save(c, "key6", "1")
+	if res {
+		fmt.Println("没重复")
+	} else {
+		fmt.Println("重复了")
+	}
 }
 
-func Save(c redis.Conn, key string) string {
-	_, err := c.Do("GET", key)
-	if err == nil {
-		return "0"
-	} else {
-		_, err = c.Do("SET", key, "1")
+func Save(c redis.Conn, key string, value string) bool {
+	v, err := c.Do("GET", key)
+	if v == nil || err != nil {
+		_, err = c.Do("SET", key, value)
 		if err != nil {
-			fmt.Println("redis set failed:", err)
+			log.Println("redis set failed:", err)
 		}
+		return true
+	} else {
+		return false //已经存在
 	}
+
 }

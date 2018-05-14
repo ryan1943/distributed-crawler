@@ -1,11 +1,20 @@
 package engine
 
+import (
+	"time"
+
+	"log"
+
+	"github.com/garyburd/redigo/redis"
+)
+
 //启动引擎
 type ConcurrentEngine struct {
 	Scheduler        Scheduler
 	WorkerCount      int
 	ItemChan         chan Item
 	RequestProcessor Processor
+	RedisConn        redis.Conn
 }
 
 type Processor func(Request) (ParseResult, error)
@@ -36,16 +45,24 @@ func (e *ConcurrentEngine) Run(seeds ...Request) {
 	}
 
 	for {
-		result := <-out
+		//30s超时退出
+		tm := time.After(30 * time.Second)
+		var result ParseResult
+		select {
+		case <-tm:
+			log.Println("\n30s timeout")
+			return
+		case result = <-out:
+		}
+		//result := <-out
 		for _, item := range result.Items {
-			//log.Printf("Got profile %v", item)
 			go func() {
 				e.ItemChan <- item
 			}()
-
 		}
 		for _, request := range result.Requests {
-			if isDuplicate(request.Url) {
+			if isDuplicate(e.RedisConn, request.Url, "1") {
+				log.Println("duplicate url")
 				continue
 			}
 			e.Scheduler.Submit(request)
@@ -71,7 +88,7 @@ func (e *ConcurrentEngine) createWorker(
 	}()
 }
 
-var visitedUrls = make(map[string]bool)
+/*var visitedUrls = make(map[string]bool)
 
 //去重
 func isDuplicate(url string) bool {
@@ -80,4 +97,4 @@ func isDuplicate(url string) bool {
 	}
 	visitedUrls[url] = true
 	return false
-}
+}*/

@@ -12,12 +12,10 @@ import (
 	"log"
 	"net/rpc"
 	"strings"
+
+	"github.com/garyburd/redigo/redis"
 )
 
-//启用itemsaver的rpc端口: go run crawler_distributed/persist/server/itemsaver.go --port=1234
-//启用worker的rpc端口: go run crawler_distributed/worker/server/worker.go --port=9000
-//					   go run crawler_distributed/worker/server/worker.go --port=9001
-//go run crawler_distributed/main.go --itemsaver_host=":1234" --worker_hosts=":9000,:9001"
 var (
 	itemSaverHost = flag.String(
 		"itemsaver_host", "", "itemsaver host")
@@ -27,11 +25,15 @@ var (
 
 func main() {
 	flag.Parse()
-
 	itemChan, err := itemsaver.ItemSaver(*itemSaverHost) //客户端
 	if err != nil {
 		panic(err)
 	}
+	redisConn, err := redis.Dial("tcp", "127.0.0.1:6379")
+	if err != nil {
+		panic(err)
+	}
+	defer redisConn.Close()
 
 	pool := createClientPool(strings.Split(*workerHosts, ","))
 	processor := worker.CreateProcessor(pool) //worker的客户端
@@ -41,6 +43,7 @@ func main() {
 		WorkerCount:      50,
 		ItemChan:         itemChan,
 		RequestProcessor: processor,
+		RedisConn:        redisConn,
 	}
 	e.Run(engine.Request{
 		Url:    "http://www.zhenai.com/zhenghun",

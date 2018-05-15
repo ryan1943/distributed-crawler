@@ -22,6 +22,7 @@ type SearchResultHandler struct {
 	client *elastic.Client
 }
 
+//工厂函数
 func CreateSearchResultHandler(template string) SearchResultHandler {
 	client, err := elastic.NewClient(elastic.SetSniff(false))
 	if err != nil {

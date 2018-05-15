@@ -4,8 +4,8 @@ import (
 	"learncrawler/crawler/engine"
 	"learncrawler/crawler/persist"
 
-	"github.com/labstack/gommon/log"
 	"gopkg.in/olivere/elastic.v5"
+	"log"
 )
 
 type ItemSaverService struct {

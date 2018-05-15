@@ -50,7 +50,7 @@ func (e *ConcurrentEngine) Run(seeds ...Request) {
 		var result ParseResult
 		select {
 		case <-tm:
-			log.Println("\n30s timeout")
+			log.Println("30s timeout.No task execution!")
 			return
 		case result = <-out:
 		}

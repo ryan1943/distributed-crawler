@@ -7,7 +7,7 @@ import (
 	"learncrawler/crawler/zhenai/parser"
 	"learncrawler/crawler_distributed/config"
 
-	"github.com/labstack/gommon/log"
+	"log"
 )
 
 //把Parser序列化用于传输

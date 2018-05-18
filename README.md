@@ -1,6 +1,9 @@
 数据存储在docker的elasticsearch里面
+
 ES启动时两种方法：
+
 第一种临时存储保存数据:
+
 docker run -d -p 9200:9200 elasticsearch
 
 第二种是映射到物理目录可以保存在本地

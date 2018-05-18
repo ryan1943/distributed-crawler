@@ -31,3 +31,5 @@ go run crawler_distributed/worker/server/worker.go --port=9001
 
 go run crawler/frontend/starter.go
 本地访问：localhost:8888 进入搜索首页
+
+工作过程中若30s内没有接收到解析结果则超时停止

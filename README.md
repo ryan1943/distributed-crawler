@@ -12,7 +12,7 @@ docker run -d -p 9200:9200 -v /home/chenwd/data/elastic:/usr/share/elasticsearch
 
 启动redis并将主机中当前data目录挂载到容器的/data：
 
-docker run -d -p 6379:6379 -v /home/chenwd/data/redis:/data  redis:3.2 redis-server --appendonly yes
+docker run -d -p 6379:6379 -v /home/chenwd/data/redis:/data  redis redis-server --appendonly yes
 
 分布式爬虫需要启动rpc服务：
 

@@ -2,7 +2,7 @@
 
 ES启动时两种方法：
 
-第一种临时存储保存数据:
+第一种临时存储数据:
 
 docker run -d -p 9200:9200 elasticsearch
 

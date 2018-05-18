@@ -8,11 +8,11 @@ docker run -d -p 9200:9200 elasticsearch
 
 第二种是映射到物理目录可以保存在本地
 
-docker run -p 9200:9200 -d -v /home/chenwd/data/elastic:/usr/share/elasticsearch/data elasticsearch
+docker run -d -p 9200:9200 -v /home/chenwd/data/elastic:/usr/share/elasticsearch/data elasticsearch
 
 启动redis并将主机中当前data目录挂载到容器的/data：
 
-docker run -p 6379:6379 -d -v /home/chenwd/data/redis:/data  redis:3.2 redis-server --appendonly yes
+docker run -d -p 6379:6379 -v /home/chenwd/data/redis:/data  redis:3.2 redis-server --appendonly yes
 
 分布式爬虫需要启动rpc服务：
 

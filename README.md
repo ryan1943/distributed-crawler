@@ -19,6 +19,7 @@ go run crawler_distributed/persist/server/itemsaver.go --port=1234
 启用两个爬取工作的rpc服务:
 
 go run crawler_distributed/worker/server/worker.go --port=9000
+
 go run crawler_distributed/worker/server/worker.go --port=9001
 
 启动主程序：go run crawler_distributed/main.go --itemsaver_host=":1234" --worker_hosts=":9000,:9001"

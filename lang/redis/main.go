@@ -20,6 +20,7 @@ func main() {
 		fmt.Println("redis set failed:", err)
 	}
 
+	//测试去重功能
 	username, err := redis.String(c.Do("GET", "key"))
 	if err != nil {
 		fmt.Println("redis get failed:", err)

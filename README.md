@@ -35,6 +35,9 @@ go run crawler/frontend/starter.go
 本地访问：localhost:8888 进入搜索首页
 
 ![效果图1](https://github.com/ryan1943/learncrawler/blob/master/%E5%89%8D%E7%AB%AF%E5%B1%95%E7%A4%BA%E6%95%88%E6%9E%9C%E5%9B%BE1.png)
+
+搜索结果
+
 ![效果图2](https://github.com/ryan1943/learncrawler/blob/master/%E5%89%8D%E7%AB%AF%E5%B1%95%E7%A4%BA%E6%95%88%E6%9E%9C%E5%9B%BE2.png)
 
 

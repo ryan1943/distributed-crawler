@@ -34,7 +34,6 @@ go run crawler_distributed/worker/server/worker.go --port=9001
 go run crawler/frontend/starter.go
 本地访问：localhost:8888 进入搜索首页
 
-
 搜索结果
 
 

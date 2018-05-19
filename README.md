@@ -34,7 +34,11 @@ go run crawler_distributed/worker/server/worker.go --port=9001
 go run crawler/frontend/starter.go
 本地访问：localhost:8888 进入搜索首页
 
+![001](https://github.com/ryan1943/learncrawler/blob/master/images/001.png)
+
 搜索结果
+
+![002](https://github.com/ryan1943/learncrawler/blob/master/images/002.png)
 
 
 

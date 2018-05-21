@@ -32,7 +32,7 @@ go run crawler_distributed/worker/server/worker.go --port=9001
 前端展示需要启动http服务：
 
 go run crawler/frontend/starter.go
-本地访问：localhost:8888 进入搜索首页
+本地访问：localhost 进入搜索首页
 
 ![001](https://github.com/ryan1943/learncrawler/blob/master/images/001.png)
 

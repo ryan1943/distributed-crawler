@@ -33,6 +33,7 @@ go run crawler_distributed/worker/server/worker.go --port=9001
 
 go run crawler/frontend/starter.go
 本地访问：localhost 进入搜索首页
+临时网站：123.207.88.187
 
 ![001](https://github.com/ryan1943/learncrawler/blob/master/images/001.png)
 

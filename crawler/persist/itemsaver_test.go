@@ -2,9 +2,9 @@ package persist
 
 import (
 	"context"
+	"distributed-crawler/crawler/engine"
+	"distributed-crawler/crawler/model"
 	"encoding/json"
-	"learncrawler/crawler/engine"
-	"learncrawler/crawler/model"
 	"testing"
 
 	elastic "gopkg.in/olivere/elastic.v5"

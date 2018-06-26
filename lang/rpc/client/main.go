@@ -1,8 +1,8 @@
 package main
 
 import (
+	"distributed-crawler/lang/rpc"
 	"fmt"
-	"learncrawler/lang/rpc"
 	"net"
 	"net/rpc/jsonrpc"
 )

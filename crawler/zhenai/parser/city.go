@@ -1,7 +1,7 @@
 package parser
 
 import (
-	"learncrawler/crawler/engine"
+	"distributed-crawler/crawler/engine"
 	"regexp"
 )
 

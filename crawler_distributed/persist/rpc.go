@@ -1,11 +1,12 @@
 package persist
 
 import (
-	"learncrawler/crawler/engine"
-	"learncrawler/crawler/persist"
+	"distributed-crawler/crawler/engine"
+	"distributed-crawler/crawler/persist"
+
+	"log"
 
 	"gopkg.in/olivere/elastic.v5"
-	"log"
 )
 
 type ItemSaverService struct {

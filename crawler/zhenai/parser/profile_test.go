@@ -1,9 +1,9 @@
 package parser
 
 import (
+	"distributed-crawler/crawler/engine"
+	"distributed-crawler/crawler/model"
 	"io/ioutil"
-	"learncrawler/crawler/engine"
-	"learncrawler/crawler/model"
 	"testing"
 )
 

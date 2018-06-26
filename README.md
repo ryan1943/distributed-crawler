@@ -37,11 +37,11 @@ go run crawler/frontend/starter.go
 临时网站：123.207.88.187
 
 
-![001](https://github.com/ryan1943/learncrawler/blob/master/images/001.png)
+![001](https://github.com/ryan1943/distributed-crawler/blob/master/images/001.png)
 
 搜索结果
 
-![002](https://github.com/ryan1943/learncrawler/blob/master/images/002.png)
+![002](https://github.com/ryan1943/distributed-crawler/blob/master/images/002.png)
 
 
 

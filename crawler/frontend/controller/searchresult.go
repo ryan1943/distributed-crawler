@@ -1,16 +1,16 @@
 package controller
 
 import (
-	"learncrawler/crawler/frontend/view"
+	"distributed-crawler/crawler/frontend/view"
 	"net/http"
 	"reflect"
 
 	"context"
-	"learncrawler/crawler/frontend/model"
+	"distributed-crawler/crawler/frontend/model"
 	"strconv"
 	"strings"
 
-	"learncrawler/crawler/engine"
+	"distributed-crawler/crawler/engine"
 
 	"regexp"
 

@@ -1,6 +1,6 @@
 package scheduler
 
-import "learncrawler/crawler/engine"
+import "distributed-crawler/crawler/engine"
 
 //调度器
 type QueuedScheduler struct {

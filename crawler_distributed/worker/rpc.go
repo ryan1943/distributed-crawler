@@ -1,6 +1,6 @@
 package worker
 
-import "learncrawler/crawler/engine"
+import "distributed-crawler/crawler/engine"
 
 type CrawlService struct{}
 

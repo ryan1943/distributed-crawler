@@ -1,10 +1,10 @@
 package main
 
 import (
-	"learncrawler/crawler/engine"
-	"learncrawler/crawler/persist"
-	"learncrawler/crawler/scheduler"
-	"learncrawler/crawler/zhenai/parser"
+	"distributed-crawler/crawler/engine"
+	"distributed-crawler/crawler/persist"
+	"distributed-crawler/crawler/scheduler"
+	"distributed-crawler/crawler/zhenai/parser"
 
 	"github.com/garyburd/redigo/redis"
 )

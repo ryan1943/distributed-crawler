@@ -1,10 +1,10 @@
 package main
 
 import (
-	"learncrawler/crawler/engine"
-	"learncrawler/crawler/model"
-	"learncrawler/crawler_distributed/config"
-	"learncrawler/crawler_distributed/rpcsupport"
+	"distributed-crawler/crawler/engine"
+	"distributed-crawler/crawler/model"
+	"distributed-crawler/crawler_distributed/config"
+	"distributed-crawler/crawler_distributed/rpcsupport"
 	"testing"
 	"time"
 )

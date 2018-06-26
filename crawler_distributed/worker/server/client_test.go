@@ -1,10 +1,10 @@
 package main
 
 import (
+	"distributed-crawler/crawler_distributed/config"
+	"distributed-crawler/crawler_distributed/rpcsupport"
+	"distributed-crawler/crawler_distributed/worker"
 	"fmt"
-	"learncrawler/crawler_distributed/config"
-	"learncrawler/crawler_distributed/rpcsupport"
-	"learncrawler/crawler_distributed/worker"
 	"testing"
 	"time"
 )

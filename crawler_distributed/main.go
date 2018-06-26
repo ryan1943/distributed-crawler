@@ -1,14 +1,14 @@
 package main
 
 import (
+	"distributed-crawler/crawler/engine"
+	"distributed-crawler/crawler/scheduler"
+	"distributed-crawler/crawler/zhenai/parser"
+	"distributed-crawler/crawler_distributed/config"
+	itemsaver "distributed-crawler/crawler_distributed/persist/client"
+	"distributed-crawler/crawler_distributed/rpcsupport"
+	worker "distributed-crawler/crawler_distributed/worker/client"
 	"flag"
-	"learncrawler/crawler/engine"
-	"learncrawler/crawler/scheduler"
-	"learncrawler/crawler/zhenai/parser"
-	"learncrawler/crawler_distributed/config"
-	itemsaver "learncrawler/crawler_distributed/persist/client"
-	"learncrawler/crawler_distributed/rpcsupport"
-	worker "learncrawler/crawler_distributed/worker/client"
 	"log"
 	"net/rpc"
 	"strings"

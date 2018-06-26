@@ -1,7 +1,7 @@
 package engine
 
 import (
-	"learncrawler/crawler/fetcher"
+	"distributed-crawler/crawler/fetcher"
 	"log"
 )
 

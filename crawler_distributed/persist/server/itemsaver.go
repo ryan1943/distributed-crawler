@@ -1,13 +1,13 @@
 package main
 
 import (
+	"distributed-crawler/crawler_distributed/persist"
+	"distributed-crawler/crawler_distributed/rpcsupport"
 	"flag"
 	"fmt"
-	"learncrawler/crawler_distributed/persist"
-	"learncrawler/crawler_distributed/rpcsupport"
 	"log"
 
-	"learncrawler/crawler_distributed/config"
+	"distributed-crawler/crawler_distributed/config"
 
 	"gopkg.in/olivere/elastic.v5"
 )

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"learncrawler/crawler/frontend/controller"
+	"distributed-crawler/crawler/frontend/controller"
 	"net/http"
 )
 

@@ -1,9 +1,9 @@
 package view
 
 import (
-	"learncrawler/crawler/engine"
-	"learncrawler/crawler/frontend/model"
-	common "learncrawler/crawler/model"
+	"distributed-crawler/crawler/engine"
+	"distributed-crawler/crawler/frontend/model"
+	common "distributed-crawler/crawler/model"
 	"os"
 	"testing"
 )

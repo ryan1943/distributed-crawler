@@ -1,11 +1,11 @@
 package worker
 
 import (
+	"distributed-crawler/crawler/engine"
+	"distributed-crawler/crawler/zhenai/parser"
+	"distributed-crawler/crawler_distributed/config"
 	"errors"
 	"fmt"
-	"learncrawler/crawler/engine"
-	"learncrawler/crawler/zhenai/parser"
-	"learncrawler/crawler_distributed/config"
 
 	"log"
 )

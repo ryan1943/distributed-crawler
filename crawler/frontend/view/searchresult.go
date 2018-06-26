@@ -1,9 +1,9 @@
 package view
 
 import (
+	"distributed-crawler/crawler/frontend/model"
 	"html/template"
 	"io"
-	"learncrawler/crawler/frontend/model"
 )
 
 type SearchResultView struct {

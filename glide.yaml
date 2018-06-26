@@ -1,0 +1,17 @@
+package: distributed-crawler
+import:
+- package: github.com/garyburd/redigo
+  version: ~1.6.0
+  subpackages:
+  - redis
+- package: golang.org/x/net
+  subpackages:
+  - html/charset
+- package: golang.org/x/text
+  version: ~0.3.0
+  subpackages:
+  - encoding
+  - encoding/unicode
+  - transform
+- package: gopkg.in/olivere/elastic.v5
+  version: ~6.1.23

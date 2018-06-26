@@ -1,9 +1,9 @@
 package client
 
 import (
-	"learncrawler/crawler/engine"
-	"learncrawler/crawler_distributed/config"
-	"learncrawler/crawler_distributed/rpcsupport"
+	"distributed-crawler/crawler/engine"
+	"distributed-crawler/crawler_distributed/config"
+	"distributed-crawler/crawler_distributed/rpcsupport"
 	"log"
 )
 

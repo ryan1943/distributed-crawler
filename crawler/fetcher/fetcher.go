@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"time"
 
-	"learncrawler/crawler_distributed/config"
+	"distributed-crawler/crawler_distributed/config"
 
 	"golang.org/x/net/html/charset"
 	"golang.org/x/text/encoding"
